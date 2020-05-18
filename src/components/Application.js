@@ -45,9 +45,7 @@ export default function Application(props) {
       return axios
       .put(`http://localhost:8001/api/appointments/${id}`, appointment)
       .then (() => setState({...state, appointments}))
-      .catch((error) => {
-        console.log(error.response.status)});
-      
+      .catch((error) => error);
   }
 
   function cancelInterview(id) {
@@ -62,8 +60,7 @@ export default function Application(props) {
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then(() => setState({...state, appointments}))
-      .catch((error) => {
-        console.log(error.response.status)});
+      
   }
 
  
