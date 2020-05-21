@@ -39,12 +39,12 @@ export default function useApplicationData() {
       return axios
       .put(`http://localhost:8001/api/appointments/${id}`, appointment)
 			.then (() => {
-			const days = [...state.days]
-			for (let day of days) {
-				if (day.appointments.includes(id)) {
-					day.spots--
-				}
-			}
+        const days = state.days.map(day => {
+          if (day.appointments.includes(id)) {
+						return {...day, spots: day.spots - 1}
+          }
+          return day
+        })
 			 setState({...state, appointments, days})}
 			)
 	}
@@ -60,13 +60,19 @@ export default function useApplicationData() {
     };
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
-      .then(() => {
-				const days = [...state.days]
-				for (let day of days) {
-					if (day.appointments.includes(id)) {
-						day.spots++
-					}
-				}
+      .then(() => { 
+        const days = state.days.map(day => {
+          if (day.appointments.includes(id)) {
+						return {...day, spots: day.spots + 1}
+          }
+          return day
+        })
+				// const days = [...state.days]
+				// for (let day of days) {
+				// 	if (day.appointments.includes(id)) {
+				// 		day.spots++
+				// 	}
+				// }
 				setState({...state, appointments, days})}) 
 	}
 

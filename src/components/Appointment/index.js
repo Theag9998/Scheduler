@@ -72,7 +72,7 @@ export default function Appointment(props) {
 				<Form 
 				interviewers={props.interviewers}
 				onSave={save}
-				onCancel={() => back(EMPTY)}
+				onCancel={back}
 				/>
 			)}
 			{mode === EDIT && (
@@ -81,7 +81,7 @@ export default function Appointment(props) {
 				interviewer={props.interview.interviewer.id}
 				interviewers={props.interviewers}
 				onSave={save}
-				onCancel={() => back(SHOW)}
+				onCancel={back}
 				/>
 			)}
 			{mode === SAVING && (
@@ -104,8 +104,14 @@ export default function Appointment(props) {
 			{mode === ERROR_DELETE && (
 				<Error
         message="Could not delete appointment."
-        onClose={() => transition(SHOW)}
+        onClose={back}
         />
+			)}
+			{mode === ERROR_SAVE && (
+				<Error 
+				message="Could not book appointment"
+				onClose={back}
+				/>
 			)}
 		</article>
 	);
