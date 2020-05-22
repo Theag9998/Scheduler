@@ -31,9 +31,9 @@ export default function Appointment(props) {
 		};
 		transition(SAVING)
 		props.bookInterview(props.id, interview)
-		.then(() => {
-			transition(SHOW)})
-		.catch((error) => transition(ERROR_SAVE, true))
+		.then(() => transition(SHOW))
+		.catch((error) => {
+			transition(ERROR_SAVE, true)})
     
 	}
 	
@@ -109,7 +109,7 @@ export default function Appointment(props) {
 			)}
 			{mode === ERROR_SAVE && (
 				<Error 
-				message="Could not book appointment"
+				message="Could not book appointment."
 				onClose={back}
 				/>
 			)}

@@ -8,8 +8,10 @@ export default function useVisualMode(initial) {
 	const transition = function(mode, replace = false) {
 		if (replace) { 
 			setHistory(prev => {
+				
 				const newHistory = [...prev];
-				newHistory[history.length -1] = mode
+				newHistory[prev.length -1] = mode
+				
 				return newHistory;
 			})
 		} else {
@@ -29,6 +31,6 @@ export default function useVisualMode(initial) {
 			})
 		}
 	}
-
+	
   return { mode: history[history.length -1], transition, back };
 }

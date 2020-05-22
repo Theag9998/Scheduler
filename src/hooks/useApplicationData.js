@@ -40,11 +40,12 @@ export default function useApplicationData() {
       .put(`http://localhost:8001/api/appointments/${id}`, appointment)
 			.then (() => {
         const days = state.days.map(day => {
-          if (day.appointments.includes(id)) {
+          if (state.day === day.name && !state.appointments[id].interview) {
 						return {...day, spots: day.spots - 1}
           }
           return day
         })
+
 			 setState({...state, appointments, days})}
 			)
 	}
@@ -62,17 +63,11 @@ export default function useApplicationData() {
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then(() => { 
         const days = state.days.map(day => {
-          if (day.appointments.includes(id)) {
+          if (state.day === day.name) {
 						return {...day, spots: day.spots + 1}
           }
           return day
         })
-				// const days = [...state.days]
-				// for (let day of days) {
-				// 	if (day.appointments.includes(id)) {
-				// 		day.spots++
-				// 	}
-				// }
 				setState({...state, appointments, days})}) 
 	}
 
