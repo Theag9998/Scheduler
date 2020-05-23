@@ -99,7 +99,7 @@ describe("Application", () => {
     expect(getByText(appointment, "Could not book appointment.")).toBeInTheDocument();
     fireEvent.click(queryByAltText(appointment, "Close"));
     expect(getByPlaceholderText(appointment, /enter student name/i)).toBeInTheDocument();
-    debug()
+    //debug()
   });
 
   it("shows the delete error when failing to delete an appointment", async() => {
