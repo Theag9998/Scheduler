@@ -34,5 +34,5 @@ npm run storybook
 ```
 
 ## Screenshots
-!["appointment-list"]()
-!["create-appointment"]()
+!["appointment-list"](https://github.com/Theag9998/Scheduler/blob/master/docs/appointment-list.png?raw=true)
+!["create-appointment"](https://github.com/Theag9998/Scheduler/blob/master/docs/create-appointment.png?raw=true)
