@@ -1,4 +1,15 @@
 # Interview Scheduler
+A Scheduler that the user can create, edit, and delete interview appointments.
+
+## Dependencies
+- "axios": "^0.18.1",
+- "classnames": "^2.2.6",
+- "normalize.css": "^8.0.1",
+- "react": "^16.9.0",
+- "react-dom": "^16.9.0",
+- "react-scripts": "3.0.0"
+- "@testing-library/react-hooks": "^3.2.1"
+- "react-test-renderer": "^16.9.0"
 
 ## Setup
 
@@ -21,3 +32,6 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Screenshots
+![""]()
