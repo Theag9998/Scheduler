@@ -10,7 +10,7 @@ export default function useApplicationData() {
     interviewers: {}
 	})
 	const setDay = day => setState({ ...state, day });
-
+//retrieve data from scheduler-api and store into state
 	useEffect(() => {
     Promise.all([
       Promise.resolve(
@@ -26,7 +26,8 @@ export default function useApplicationData() {
       setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     })
 	}, [])
-	
+  
+  //submit a put request to update the database with the new appointment data
 	function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -41,6 +42,7 @@ export default function useApplicationData() {
 			.then (() => {
         const days = state.days.map(day => {
           if (state.day === day.name && !state.appointments[id].interview) {
+            //update the number of spots remaining
 						return {...day, spots: day.spots - 1}
           }
           return day
@@ -49,7 +51,7 @@ export default function useApplicationData() {
 			 setState({...state, appointments, days})}
 			)
 	}
-	
+	//submit a delete request to update the database to remove the appointment data
 	function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
@@ -64,6 +66,7 @@ export default function useApplicationData() {
       .then(() => { 
         const days = state.days.map(day => {
           if (state.day === day.name) {
+            //update the number of spots remaining
 						return {...day, spots: day.spots + 1}
           }
           return day

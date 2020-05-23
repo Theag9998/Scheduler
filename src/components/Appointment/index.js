@@ -24,6 +24,7 @@ export default function Appointment(props) {
 		props.interview ? SHOW : EMPTY
 	);
 
+	//pass the name and interview data from the form to bookinterview
 	function save(name, interviewer) {
     const interview = {
       student: name,
@@ -36,7 +37,7 @@ export default function Appointment(props) {
 			transition(ERROR_SAVE, true)})
     
 	}
-	
+	//pass the interview data set as null to cancelInterview 
 	function cancelInterview(name) {
 		const interview = {
 			student: name,

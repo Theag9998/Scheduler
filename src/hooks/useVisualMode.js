@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-
+//custom hook that manages the visual mode of any component
 export default function useVisualMode(initial) {
 	const [ history, setHistory ] = useState([initial]);
 	

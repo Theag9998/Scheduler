@@ -2,6 +2,7 @@ import React from "react";
 import "components/DayListItem.scss";
 import classnames from "classnames";
 
+//show all data for a single weekday
 export default function DayListItem(props) {
 	const formatSpots = function(props) {
 		if (props.spots === 0) {
@@ -11,7 +12,6 @@ export default function DayListItem(props) {
 		} else {
 			return (props.spots + " spots remaining")
 		}
-		
 	};
 
 	const dayClass = classnames("day-list__item", {

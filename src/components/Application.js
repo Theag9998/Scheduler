@@ -17,6 +17,7 @@ export default function Application(props) {
 
   const interviewers = getInterviewersForDay(state, state.day)
 
+  //iterate over the returned appointment array to display the different appointments from the database for a selected day
   const appointments = getAppointmentsForDay(state, state.day)
   const appointmentList = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -36,7 +37,6 @@ export default function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
-          {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
         <img
           className="sidebar--centered"
           src="images/logo.png"

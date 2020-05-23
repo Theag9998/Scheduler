@@ -1,5 +1,6 @@
 import React from "react"
 
+//display an indiction that an operation is in progress
 export default function Status(props) {
 	return (
 		<main className="appointment__card appointment__card--status">

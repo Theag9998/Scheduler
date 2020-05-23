@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
+//display a confirm message when a user wants to delete their interview
 export default function Confirm(props) {
 	return (
 		<main className="appointment__card appointment__card--confirm">
